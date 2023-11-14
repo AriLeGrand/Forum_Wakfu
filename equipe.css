@@ -181,6 +181,7 @@ h1, h2, h3 {
     flex-wrap: wrap;
     justify-content: space-around;
     height: 80vh;
+    
 }
 
 .team-member {
@@ -192,6 +193,7 @@ h1, h2, h3 {
     margin: 20px;
     padding: 20px;
     width: 45%; /* Ajustez la largeur selon votre besoin */
+    margin: auto;
 }
 
 .team-member img {

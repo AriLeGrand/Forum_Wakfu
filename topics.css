@@ -142,27 +142,6 @@ body{
 
 
 
-
-
-/* **************************************************************** */
-/* **************************************************************** */
-/* **************************************************************** */
-/* **************************************************************** */
-
-
-
-/* utilisant les intégration donné par X (aka twitter) on l'adapte a notre page */
-
-div#twitter{
-    width: 55%;
-    margin: auto;
-    margin-bottom: -150px;
-}
-
-
-
-
-
 /* **************************************************************** */
 /* **************************************************************** */
 /* **************************************************************** */
@@ -173,17 +152,6 @@ div#twitter{
 
 
 /* footer */
-footer{
-    position: relative;
-    background-color: #ffc5c588;
-    overflow: hidden;
-    height: 100px;
-    display: flex;
-    margin-top: 150px;
-    margin-bottom: -100px;
-    justify-content: center;
-    align-items: center;
-}
 
 
 
@@ -220,10 +188,6 @@ footer{
         justify-content: center;
     }
 
-    div#twitter{
-        width: 90%;
-        margin-top: 40px;
-        margin-bottom: -150px;
-    }
+    
 
 }

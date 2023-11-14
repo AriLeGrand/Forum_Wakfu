@@ -143,13 +143,32 @@ body{
 /* **************************************************************** */
 /* **************************************************************** */
 /* **************************************************************** */
-#main{
-    background-color: rgba(250, 235, 215, 0.575);
-    padding: 10px;
+#main {
+  position: relative;
+  background-image: url(https://cdn.discordapp.com/attachments/1169941165290831884/1173912833407328296/image-removebg-preview_1.png?ex=6565ae85&is=65533985&hm=5e331cc871483a9bc05086452346a9709709302fcdcce36b85e0684e1308f659&);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgba(250, 235, 215, 0.575);
+  padding: 10px;
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  size: 110%;
 }
 
-
-
+#mainbloc {
+  margin-top: 4.8%;
+  margin-right: 7.2%;
+  top: 10%; /* Ajustez la valeur en fonction de la disposition souhaitée par rapport au haut */
+  right: 10%; /* Ajustez la valeur en fonction de la disposition souhaitée par rapport à la droite */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0); /* Ajoutez un fond semi-transparent pour le bloc de texte */
+  color: rgb(255, 0, 0); /* Couleur du texte */
+  max-width: 50%; /* Ajustez la largeur maximale du bloc de texte selon vos besoins */
+  font-size: 14px;
+}
 
 
 

@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum Wakfu non officiel</title>
+    <title>Notre Équipe</title>
 
-    
-
-    <!-- importation de style -->
-
-
-    <link rel="stylesheet" href="contact.css">
+    <!-- Importation de styles -->
+    <link rel="stylesheet" href="test.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png">
+
 </head>
 <body>
 
-
-    <!-- header -->
-    <!-- Top navigation -->
-
-
+    <!-- Header -->
     <header>
         <nav>
             <div id="flex-container" class="topnav">
@@ -35,36 +28,33 @@
         </nav>
     </header>
 
-    <!-- Intérieur de la page -->
-    <!-- Formulaire  -->
-    <main>
-        <form action="" method="post" onsubmit="return popUp_Func()" id="formulaire">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
+  <!-- Contenu de la page -->
+  <div class="container team-section">
+    <div class="team-member">
+        <img src="https://example.com/membre1.jpg" alt="Membre 1">
+        <h3>Mathis Rivierez</h3>
+        <p>Développeur Web</p>
+        <a href="#">En savoir plus</a>
+    </div>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
+    <div class="team-member">
+        <img src="https://example.com/membre2.jpg" alt="Membre 2">
+        <h3>Léo Guillemart</h3>
+        <p>Développeur Web</p>
+        <a href="#">En savoir plus</a>
+    </div>
+</div>
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
+            <!-- Ajoutez d'autres membres de l'équipe au besoin -->
 
-            <button type="submit">Envoyer</button>
-        </form>
-    </main>
+        </section>
 
-    <footer> Contact </footer>
-    <script>
-        function popUp_Func() {
-            if (confirm("Etes-vous sûr d'envoyer ce message ?")) {
-                RedirectionJS();
-            }
-            // Annule l'envoi
-            return false;
-        }
-    
-        function RedirectionJS() {
-            window.location.replace("index.html");
-        }
-    </script>
+        <!-- Ajoutez d'autres sections d'équipe au besoin -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer> Copyright © </footer>
+
 </body>
 </html>

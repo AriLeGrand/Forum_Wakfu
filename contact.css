@@ -9,12 +9,9 @@ html {
 body{
     font-family: 'Dancing Script', cursive;
 }
-
-*{  
-    margin: 0px;
-    margin-bottom: 1%;
+* {
     margin-right: 0px;
-} 
+}
 
 
 
@@ -67,6 +64,7 @@ body{
     box-shadow: inset 30vmax 0 0 0 #B2D9E3;
     color: white;
 }
+
 
 
 #flex-container {
@@ -170,9 +168,7 @@ button {
 
 main {
     max-width: 800px;
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -207,10 +203,9 @@ button:hover {
     background-color: #555;
 }
 
-/* **************************************************************** */
-/* **************************************************************** */
-/* **************************************************************** */
-/* **************************************************************** */
+
+
+
 
 /* **************************************************************** */
 /* **************************************************************** */

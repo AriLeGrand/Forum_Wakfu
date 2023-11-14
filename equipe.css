@@ -1,0 +1,179 @@
+html { 
+    background: url(https://clan.akamai.steamstatic.com/images/4461458/074479f93a1d47922fddb616f825911719b577e1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body{
+    font-family: 'Dancing Script', cursive;
+}
+*{  
+    margin: 0px;
+    margin-bottom: 1%;
+    margin-right: 0px;
+} 
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+
+/* Couleur du fond */
+.topnav {
+    position: relative;
+    background-color: #0083a365;
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .1s; /* Animation */
+}
+
+.topnav img{
+    transition: transform .2s; /* Animation */
+}
+.topnav img:hover{
+    transform: scale(1.09);
+}
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+/* Style the links inside the navigation bar */
+/* La couleur quand la souris passe dessus */
+.topnav a {
+    box-shadow: inset 0 0 0 0 #B2D9E3;
+    color: white;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    text-align: center;
+    padding: 2%;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.topnav a:hover {
+    box-shadow: inset 30vmax 0 0 0 #B2D9E3;
+    color: white;
+}
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(2) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: center;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(3) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(4) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(5) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+
+#nav-img:hover{
+    transition: none;
+    box-shadow: none;
+}
+
+/* Ajouter une couleur quand actif */
+.topnav a.active {
+  background-color: #04aa6d00;
+  color: white;
+}
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+#main{
+    background-color: rgba(250, 235, 215, 0.575);
+    padding: 10px;
+}
+
+
+
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+/* footer */
+footer{
+    position: relative;
+    background-color: #0083a365;
+    overflow: hidden;
+    height: 100px;
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: -100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */

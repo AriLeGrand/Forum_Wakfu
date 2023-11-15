@@ -7,7 +7,7 @@ html {
 }
 
 body{
-    font-family: 'Dancing Script', cursive;
+    font-family: "Bebas_Neue variant0", Tofu;
 }
 
 * {
@@ -172,7 +172,7 @@ button {
 }
 
 h1, h2, h3 {
-    color: #007BFF;
+    color: rgb(0, 0, 0);
 }
 
 .team-section {
@@ -180,15 +180,15 @@ h1, h2, h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 80vh;
+    height: 56.5vh;
     
 }
 
 .team-member {
-    background-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(204, 142, 49, 0.822);
     color: #343a40;
     text-align: center;
-    border: 1px solid #dee2e6;
+    border: 1px solid rgb(187, 177, 39);
     border-radius: 10px;
     margin: 20px;
     padding: 20px;
@@ -204,7 +204,7 @@ h1, h2, h3 {
 }
 
 .team-member a {
-    color: #007BFF;
+    color: rgb(81, 87, 62);
     text-decoration: none;
 }
 

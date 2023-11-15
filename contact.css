@@ -7,7 +7,7 @@ html {
 }
 
 body{
-    font-family: 'Dancing Script', cursive;
+    font-family: "Bebas_Neue variant0", Tofu;
 }
 
 *{  
@@ -183,7 +183,7 @@ main {
     padding: 20px;
     /* background-color: #ffffff; */
     border-radius: 8px;
-    height: 65vh;
+    height: 39vh;
 }
 
 label {

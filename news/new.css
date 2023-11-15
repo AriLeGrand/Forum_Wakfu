@@ -1,0 +1,228 @@
+html { 
+    background: url(https://th.bing.com/th/id/R.d51542dbb6dc0c9f2ee3e2fa5d0f9de7?rik=tdUY1pOcOxLp%2fg&riu=http%3a%2f%2fwww.wakfu-world.com%2fimages%2fupload%2fsrc%2fxelor.jpg&ehk=6UtMu1If4b0tYqFNJNn%2bhuzFYODVcqgdX5qFjy5Pkzc%3d&risl=&pid=ImgRaw&r=0) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body{
+    font-family: "Bebas_Neue variant0", Tofu;
+}
+* {
+    margin-right: 0px;
+    margin: 0px;
+    margin-bottom: 1%;
+}
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+
+/* Couleur du fond */
+.topnav {
+    position: relative;
+    background-color: #ffc5c588;
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .1s; /* Animation */
+}
+
+.topnav img{
+    transition: transform .2s; /* Animation */
+}
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+/* Style the links inside the navigation bar */
+/* La couleur quand la souris passe dessus */
+.topnav a {
+    box-shadow: inset 0 0 0 0 #f5cda775;
+    color: white;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    text-align: center;
+    padding: 2%;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.topnav a:hover {
+    box-shadow: inset 30vmax 0 0 0 rgba(250, 186, 127, 0.568);
+    color: white;
+}
+
+
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(2) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: center;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(3) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(4) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+  
+  .flex-items:nth-child(5) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: 20%;
+  }
+
+#nav-img:hover{
+    transition: none;
+    box-shadow: none;
+}
+
+/* Ajouter une couleur quand actif */
+.topnav a.active {
+  background-color: #04aa6d00;
+  color: white;
+}
+
+
+
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+/* utilisant les intégration donné par X (aka twitter) on l'adapte a notre page */
+
+div#twitter{
+    width: 55%;
+    margin: auto;
+    margin-bottom: -150px;
+}
+
+
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+
+
+/* footer */
+footer{
+    position: relative;
+    background-color: #ffc5c588;
+    overflow: hidden;
+    height: 100px;
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: -100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+/* **************************************************************** */
+
+
+
+
+/* Version mobile */
+@media screen and (max-width: 900px) {
+    * {
+        margin-right: 0px;
+    }
+    .topnav a {
+        font-size: 18px;
+    }
+
+    .topnav img{
+        width: 5.5rem; /* Animation */
+        height: 3rem;
+    }
+
+    .topnav {
+        position: relative;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div#twitter{
+        width: 90%;
+        margin-top: 40px;
+        margin-bottom: -150px;
+    }
+
+}

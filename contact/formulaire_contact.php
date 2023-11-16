@@ -5,6 +5,7 @@ ini_set("smtp_port", "587");
 ini_set("sendmail_from", "cosmosdrpepper@gmail.com");
 ini_set("sendmail_path", "\"C:\xampp\sendmail\sendmail.exe\" -t");
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // les données
     $nom = $_POST["nom"];

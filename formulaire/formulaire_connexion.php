@@ -25,6 +25,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .container a{
+            text-decoration: none;
+            color: black;
+        }
+
         .form-container {
             display: flex;
             justify-content: center;
@@ -57,6 +62,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="../index.php">← retour</a>
         <div class="form-container">
             <!-- Formulaire de connexion -->
             <form action="connexion.php" method="post">

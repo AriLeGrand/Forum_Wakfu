@@ -28,10 +28,9 @@
         <nav>
             <div id="flex-container" class="topnav">
                 <div class="flex-items" id="div-navbar-img"><a href="index.html" id="nav-img"><img src="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png" alt="Wakfu_Logo" height="100px" width="200px"></a></div>
-                <div class="flex-items"><a href="news.html">Actualités</a></div>
-                <div class="flex-items"><a href="contact.html">Contact</a></div>
-                <div class="flex-items"><a href="topics.html">Nos Guides</a></div>
-                <div class="flex-items"><a href="equipe.html">Qui sommes nous ?</a></div>
+                <div class="flex-items"><a href="news.php">Actualités</a></div>
+                <div class="flex-items"><a href="contact.php">Contact</a></div>                <div class="flex-items"><a href="topics.html">Nos Guides</a></div>
+                <div class="flex-items"><a href="equipe.php">Qui sommes nous ?</a></div>
                 <div class="flex-items" id="div-navbar-img"><a href="formulaire/formulaire_connexion.php" id="nav-img"><img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174418033364713482/image-removebg-preview.png?ex=65678506&is=65551006&hm=9440a8aac0c50c287d511b265ed4f87e38351f262d38af45d67eb3d10ba62c84&" height="60px" width="68px"></a></div>
             </div>
         </nav>

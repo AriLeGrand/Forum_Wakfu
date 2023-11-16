@@ -20,7 +20,7 @@ if (isset($_POST["inscription"])) {
         $resultat = $requete->execute();
 
         if ($resultat) {
-            // Redirection vers index.html
+            // Redirection vers index.php
             header("Location: ../index.php");
             exit(); // Assurez-vous de terminer le script après la redirection
         } else {

@@ -100,7 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section>
         <H1 id="title_topic">Quel est la meilleure zone pour débuter</H1>
+        <a href="topics.php" id="retour">← retour</a>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="form_topics">
+        
                     <legend><h2>Message</h2></legend>
 
         <textarea name="message" id="message" cols="120" rows="10" required></textarea> <br>

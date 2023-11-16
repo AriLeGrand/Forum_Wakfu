@@ -40,7 +40,7 @@ if (isset($_SESSION['email_utilisateur'])) {
         <nav>
             <div id="flex-container" class="topnav">
                 <div class="flex-items" id="div-navbar-img"><a href="../index.php" id="nav-img"><img src="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png" alt="Wakfu_Logo" height="100px" width="200px"></a></div>
-                    <div class="flex-items"><a href="../news.php">Actualités</a></div>
+                    <div class="flex-items"><a href="../news/news.php">Actualités</a></div>
                     <div class="flex-items"><a href="../contact/contact.php">Contact</a></div>
                     <div class="flex-items"><a href="topics.php">Nos Guides</a></div>
                     <div class="flex-items"><a href="../equipe/equipe.php">Qui sommes nous ?</a></div>

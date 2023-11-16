@@ -1,13 +1,64 @@
 <?php
-session_start();
-// Vérifier si l'utilisateur est connecté en vérifiant la présence de la variable de session
-if (isset($_SESSION['email_utilisateur'])) {
+ session_start();
+ // Vérifier si l'utilisateur est connecté en vérifiant la présence de la variable de session
+ if (isset($_SESSION['email_utilisateur'])) {
     $email_utilisateur = $_SESSION['email_utilisateur'];
     $nom_utilisateur = $_SESSION['nom_utilisateur'];
-} else {
-    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: formulaire/formulaire_connexion.php");
-    exit();
+ } else {
+     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+     header("Location: formulaire/formulaire_connexion.php");
+     exit();
+}
+
+
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "bdd_user";
+
+// Créez une connexion à la base de données
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifiez la connexion
+if ($conn->connect_error) {
+    die("La connexion a échoué : " . $conn->connect_error);
+}
+
+// Récupérez les messages depuis la base de données
+$sql = "SELECT * FROM general_msg ORDER BY timestamp DESC LIMIT 100";
+// $sql = "SELECT * FROM topic_user ORDER BY timestamp DESC";
+$result = $conn->query($sql);
+$messages = [];
+// var_dump($result->fetch_assoc());
+if (count($result) > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $messages[] = $row;
+    }
+}
+// var_dump($messages);
+// Fermez la connexion à la base de données
+$conn->close();
+
+// Si un message a été soumis, ajoutez-le à la base de données
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $message_text = $_POST["message"];
+
+    if (!empty($message_text)) {
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("La connexion a échoué : " . $conn->connect_error);
+        }
+
+        $message_text = $conn->real_escape_string($message_text);
+        $sql = "INSERT INTO general_msg (user_name, msg) VALUES ('$nom_utilisateur', '$message_text')";
+        // INSERT INTO `general_msg` (`id_u`, `msg`, `timestamp`) VALUES ('2', 'hjtfhj', CURRENT_TIMESTAMP);
+        $conn->query($sql);
+
+        $conn->close();
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -38,12 +89,12 @@ if (isset($_SESSION['email_utilisateur'])) {
     <header>
         <nav>
             <div id="flex-container" class="topnav">
-                <div class="flex-items" id="div-navbar-img"><a href="index.php" id="nav-img"><img src="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png" alt="Wakfu_Logo" height="100px" width="200px"></a></div>
+                <div class="flex-items" id="div-navbar-img"><a href="index.php" id="nav-img"><img src="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png" alt="Wakfu_Logo" height="100px" width="200px" id="Wakfu_Logo"></a></div>
                 <div class="flex-items"><a href="news/news.php">Actualités</a></div>
                 <div class="flex-items"><a href="contact/contact.php">Contact</a></div>
                 <div class="flex-items"><a href="topics/topics.php">Nos Guides</a></div>
                 <div class="flex-items"><a href="equipe/equipe.php">Qui sommes nous ?</a></div>
-                <div class="flex-items" id="div-navbar-img"><a href="formulaire/formulaire_connexion.php" id="nav-img"><img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174418033364713482/image-removebg-preview.png?ex=65678506&is=65551006&hm=9440a8aac0c50c287d511b265ed4f87e38351f262d38af45d67eb3d10ba62c84&" height="60px" width="68px"><?php echo "$nom_utilisateur" ?></a></div>
+                <div class="flex-items" id="div-navbar-img"><a href="formulaire/formulaire_connexion.php" id="nav-img"><img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174418033364713482/image-removebg-preview.png?ex=65678506&is=65551006&hm=9440a8aac0c50c287d511b265ed4f87e38351f262d38af45d67eb3d10ba62c84&" height="60px" width="68px" id="wakfu"><?php echo "$nom_utilisateur" ?></a></div>
             </div>
         </nav>
     </header>
@@ -62,140 +113,69 @@ if (isset($_SESSION['email_utilisateur'])) {
         <section id="block1">
             <article class="topics">
                 <img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174434686693556224/image.png?ex=65679489&is=65551f89&hm=50db00069022078c6d482577032f31eb3811947e4b7b5c71a31ca0b049ff976d&" alt="" width="100">
-                <p><span class="Question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maxime, non ipsum placeat veniam soluta!</span><br>
-                    <span id="Utilisateur">Utilisateur1</span></p><br>
-                <a href="#topic1"><button id="join-button" name="join-button">Rejoindre</button></a>
+                <p><span class="Question">Quel est la meilleure classe pour débuter ?</span><br>
+                    <span id="Utilisateur">az7</span></p><br>
+                <a href="topics1.php"><button id="join-button" name="join-button">Rejoindre</button></a>
             </article>
             <article class="topics">
                 <img src="https://avatar.ankama.com/users/44927746.png" alt="" width="100">
-                <p><span class="Question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos adipisci cupiditate, amet, velit maxime consectetur ad corporis tempore molestiae facilis explicabo eius solut</span><br>
-                <span id="Utilisateur">Utilisateur2</span></p>
-                <a href="#topic2"><button id="join-button" name="join-button">Rejoindre</button></a>
+                <p><span class="Question">Quel est la meilleure zone pour débuter ?</span><br>
+                <span id="Utilisateur">Leo ABON</span></p>
+                <a href="topics2.php"><button id="join-button" name="join-button">Rejoindre</button></a>
             </article>
             <article class="topics">
                 <img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174434837252284488/image.png?ex=656794ad&is=65551fad&hm=fa241b8601faf576042f1ecf7b2aa32e23fb470c4f2e2e77ee2dbf0202b1892f&" alt="" width="100">
-                <p><span class="Question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maxime, non ipsum placeat veniam soluta!</span>
+                <p><span class="Question">Quel sont les meilleures stratégie ?</span>
                     <br>
-                <span id="Utilisateur">Utilisateur3</span></p><br>
-                <a href="#topic3"><button id="join-button" name="join-button">Rejoindre</button></a>
+                <span id="Utilisateur">azerty</span></p><br>
+                <a href="topics3.php"><button id="join-button" name="join-button">Rejoindre</button></a>
             </article>
         </section>
 
 
         <section id="block2">
             <div class="chat-container">
-                <hr>
-                <h2 id="chatgénéral">Chat Général</h2>
-                <hr>
                 <div class="chat-messages">
-                    <div class="message">
-                        <div class="user">Utilisateur 1:</div>
-                        <div class="text-user">Salut, comment ça va ?</div>
-                    </div>
-                    <div class="message">
-                        <div class="user">Utilisateur 2:</div>
-                        <div class="text-user">Tout va bien, merci ! Et toi ?</div>
-                    </div>
-                    <div class="message">
-                        <div class="user">Utilisateur 1:</div>
-                        <div class="text-user">Salut, comment ça va ?</div>
-                    </div>
-                    <div class="message">
-                        <div class="user">Utilisateur 2:</div>
-                        <div class="text-user">Tout va bien, merci ! Et toi ?</div>
-                    </div>
-                    <div class="message">
-                        <div class="user">Utilisateur 1:</div>
-                        <div class="text-user">Salut, comment ça va ?</div>
-                    </div>
-                    <div class="message">
-                        <div class="user">Utilisateur 2:</div>
-                        <div class="text-user">Tout va bien, merci ! Et toi ?</div>
-                    </div>
-
-
-                    <!-- Ajoutez d'autres messages ici -->
-
-
+                    <?php for ($i = count($messages) - 1; $i >= 0; $i--): ?>
+                        <p><?php echo htmlspecialchars($messages[$i]['user_name']); ?></p>
+                        <h4><?php echo htmlspecialchars($messages[$i]['msg']); ?></h4>
+                        <hr>
+                    <?php endfor; ?>
                 </div>
+
             </div>
 
                 <!-- Chat input -->
 
             <div class="bottom-content"> 
                 <div class="chat-input">
-                    <input type="text" placeholder="Saisissez votre message">
-                    <button>Envoyer</button>
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="form_topics">
+        
+                    <legend><h2>Chat general</h2></legend>
+
+                    <input name="message" id="message" required></input> <br>
+                    <button type="submit">POST</button>
+                </form>
                 </div>
             </div>    
-        </section>
-
-
-
-
-        
+        </section> 
     </main>
     <footer> Copyright © </footer>
 
+        <!-- JavaScript for auto-scrolling -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatMessagesContainer = document.querySelector('.chat-messages');
-            const chatInput = document.querySelector('.chat-input input');
-            const chatSendButton = document.querySelector('.chat-input button');
+        // Function to scroll the chat container to the bottom
+        function scrollToBottom() {
+            var chatContainer = document.querySelector('.chat-container');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
 
-            // Fonction pour afficher les messages du chat
-            function afficherMessagesChat() {
-                fetch('chat/get_messages.php')
-                    .then(response => response.json())
-                    .then(messages => {
-                        chatMessagesContainer.innerHTML = '';
-                        messages.forEach(msg => {
-                            ajouterMessageChat(msg);
-                        });
-                        
-                        // Défiler vers le bas après l'affichage des messages
-                        chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-                    });
-            }
+        // Call scrollToBottom() when the page loads
+        window.onload = scrollToBottom;
 
-            // Fonction pour ajouter un message au chat
-            function ajouterMessageChat(message) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.innerHTML = `
-                    <div class="user">${message.user}:</div>
-                    <div class="text-user">${message.message}</div>
-                `;
-                chatMessagesContainer.appendChild(messageDiv);
-            }
-
-            // Fonction pour envoyer un message dans le chat
-            function envoyerMessageChat() {
-                const message = chatInput.value.trim();
-                if (message !== '') {
-                    fetch('chat/save_message.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: `message=${encodeURIComponent(message)}`,
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            // Actualiser la liste des messages après l'envoi
-                            afficherMessagesChat();
-                            chatInput.value = ''; // Effacer le champ de saisie
-                        }
-                    });
-                }
-            }
-
-            // Afficher les messages du chat initiaux
-            afficherMessagesChat();
-
-            // Ajouter un écouteur d'événement pour le bouton d'envoi
-            chatSendButton.addEventListener('click', envoyerMessageChat);
+        // Call scrollToBottom() after posting a new message
+        document.getElementById('form_topics').addEventListener('submit', function () {
+            scrollToBottom();
         });
     </script>
 </body>

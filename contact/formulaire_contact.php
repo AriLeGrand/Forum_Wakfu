@@ -1,39 +1,29 @@
 <?php
-// pour l'envoie de mail
-ini_set("SMTP", "smtp.gmail.com");
-ini_set("smtp_port", "587");
-ini_set("sendmail_from", "cosmosdrpepper@gmail.com");
-ini_set("sendmail_path", "\"C:\xampp\sendmail\sendmail.exe\" -t");
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // les données
+    // Récupérer les données du formulaire
     $nom = $_POST["nom"];
     $email = $_POST["email"];
     $message = $_POST["message"];
 
-    // adresse mail de reçu
-    $to = "cosmosdrpepper@gmail.com";
+    // Adresse e-mail où vous souhaitez recevoir les notifications
+    $destinataire = "cosmosdrpepper@gmail.com";
 
-    // objet du mail
-    $subject = "Nouveau message de $nom";
+    // Sujet du mail
+    $sujet = "Nouveau message de $nom";
 
-    // composition du mail qu'on reçoit
-    $email_message = "Nom: $nom\n";
-    $email_message .= "Email: $email\n";
-    $email_message .= "Message:\n$message";
+    // Corps du mail
+    $corps_message = "Nom: $nom\n";
+    $corps_message .= "Email: $email\n";
+    $corps_message .= "Message:\n$message";
 
-    // header en plus
-    $headers = "From: $email";
+    // En-têtes du mail
+    $headers = "De: $email";
 
-    // envoyer le message
-    mail($to, $subject, $email_message, $headers);
+    // Envoyer l'e-mail
+    mail($destinataire, $sujet, $corps_message, $headers);
 
-    // Envoie de la réponse automatique à l'utilisateur
-    $user_subject = "Merci de nous avoir contactés";
-    $user_message = "Cher $nom,\n\nMerci pour votre message. Nous vous répondrons bientôt.";
-
-    mail($email, $user_subject, $user_message, $headers);
+    // Redirection après l'envoi du formulaire
+    header("Location: ../index.php");
     exit();
 }
-?>
+?> 

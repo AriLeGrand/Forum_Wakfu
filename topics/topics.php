@@ -1,38 +1,72 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "bdd_user";
+
+// Créez une connexion à la base de données
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifiez la connexion
+if ($conn->connect_error) {
+    die("La connexion a échoué : " . $conn->connect_error);
+}
+
+// Récupérez les messages depuis la base de données
+$sql = "SELECT * FROM topics_user ORDER BY timestamp DESC";
+$result = $conn->query($sql);
+$messages = [];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $messages[] = $row;
+    }
+}
+
+// Fermez la connexion à la base de données
+$conn->close();
+
+// Si un message a été soumis, ajoutez-le à la base de données
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $message_text = $_POST["message"];
+
+    if (!empty($message_text)) {
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("La connexion a échoué : " . $conn->connect_error);
+        }
+
+        $message_text = $conn->real_escape_string($message_text);
+        $sql = "INSERT INTO topics_user (text) VALUES ('$message_text')";
+        $conn->query($sql);
+
+        $conn->close();
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum Wakfu non officiel</title>
-
-
-    <!-- importation de style -->
-
-
-    <link rel="stylesheet" href="topics.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="icon" href="logo.jpg">
-
+    <title>Twitter-like Feed</title>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div id="flex-container" class="topnav">
-                <div class="flex-items" id="div-navbar-img"><a href="../index.php" id="nav-img"><img src="https://upload.wikimedia.org/wikipedia/fr/1/1f/Wakfu_Logo.png" alt="Wakfu_Logo" height="100px" width="200px"></a></div>
-                <div class="flex-items"><a href="../news/news.php">Actualités</a></div>
-                <div class="flex-items"><a href="../contact/contact.php">Contact</a></div>
-                <div class="flex-items"><a href="topics.php">Nos Guides</a></div>
-                <div class="flex-items"><a href="../equipe/equipe.php">Qui sommes nous ?</a></div>
-                <div class="flex-items" id="div-navbar-img"><a href="../formulaire/formulaire_connexion.php" id="nav-img"><img src="https://cdn.discordapp.com/attachments/1159173141554282647/1174418033364713482/image-removebg-preview.png?ex=65678506&is=65551006&hm=9440a8aac0c50c287d511b265ed4f87e38351f262d38af45d67eb3d10ba62c84&" height="60px" width="68px"></a></div>
-            </div>
-        </nav>
-    </header>
-    
-
-
-    <footer> Copyright © </footer>
+    <h1>Twitter-like Feed</h1>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <label for="message">Tweet:</label>
+        <input type="text" name="message" id="message" required>
+        <button type="submit">Post</button>
+    </form>
+    <div>
+        <?php foreach ($messages as $message): ?>
+            <p><?php echo htmlspecialchars($message['text']); ?> - <?php echo $message['timestamp']; ?></p>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>

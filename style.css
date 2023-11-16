@@ -473,7 +473,7 @@ footer{
         gap: 5%;
     }
 
-    #block3 {
+    #block2 {
         position: relative;
         width: 100%;
         height: auto;
@@ -485,7 +485,5 @@ footer{
         justify-content: flex-end;
         flex-direction: column;
     }
-
- 
 
 }

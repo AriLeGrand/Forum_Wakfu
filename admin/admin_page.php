@@ -1,3 +1,4 @@
+<link rel="icon" href="https://spng.pngfind.com/pngs/s/72-723346_wakfu-logo-wakfu-png-transparent-png.png">
 <?php
 session_start();
 

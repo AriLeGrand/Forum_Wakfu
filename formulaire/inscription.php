@@ -21,7 +21,7 @@ if (isset($_POST["inscription"])) {
 
         if ($resultat) {
             // Redirection vers index.php
-            header("Location: ../index.php");
+            header("Location: formulaire_connexion.php");
             exit(); // Assurez-vous de terminer le script après la redirection
         } else {
             echo 'Erreur lors de l\'inscription';
